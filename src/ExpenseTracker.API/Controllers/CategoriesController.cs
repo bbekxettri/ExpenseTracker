@@ -11,7 +11,6 @@ namespace ExpenseTracker.API.Controllers;
 [Route("api/[controller]")]
 public class CategoriesController(ICategoryService categoryService, ICurrentUserService currentUser) : ControllerBase
 {
-    // 🔹 GET: api/categories
     [HttpGet]
     public async Task<IActionResult> GetAll()
     {
@@ -21,7 +20,6 @@ public class CategoriesController(ICategoryService categoryService, ICurrentUser
         return Ok(categories);
     }
 
-    // 🔹 GET: api/categories/5
     [HttpGet("{id:int}")]
     public async Task<IActionResult> GetById(int id)
     {
@@ -34,7 +32,6 @@ public class CategoriesController(ICategoryService categoryService, ICurrentUser
         return Ok(category);
     }
 
-    // 🔹 POST: api/categories
     [HttpPost]
     public async Task<IActionResult> Create([FromBody] CreateCategoryDto dto)
     {
@@ -44,7 +41,6 @@ public class CategoriesController(ICategoryService categoryService, ICurrentUser
         return CreatedAtAction(nameof(GetById), new { id = created.Id }, created);
     }
 
-    // 🔹 PUT: api/categories/5
     [HttpPut("{id:int}")]
     public async Task<IActionResult> Update(int id, [FromBody] UpdateCategoryDto dto)
     {
@@ -57,7 +53,6 @@ public class CategoriesController(ICategoryService categoryService, ICurrentUser
         return Ok(updated);
     }
 
-    // 🔹 DELETE: api/categories/5
     [HttpDelete("{id:int}")]
     public async Task<IActionResult> Delete(int id)
     {

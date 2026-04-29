@@ -25,9 +25,9 @@ public class TransactionRepository(AppDbContext context) : ITransactionRepositor
     }
 
     public async Task<Transaction> CreateTransactionAsync(Transaction transaction)
-    { 
+    {
         context.Transactions.Add(transaction);
-        await  context.SaveChangesAsync();
+        await context.SaveChangesAsync();
         return transaction;
     }
 
@@ -43,7 +43,7 @@ public class TransactionRepository(AppDbContext context) : ITransactionRepositor
         var transaction = await context.Transactions.FirstOrDefaultAsync(t => t.Id == id && t.UserId == userId);
         if (transaction is null)
             return false;
-        
+
         context.Transactions.Remove(transaction);
         await context.SaveChangesAsync();
         return true;

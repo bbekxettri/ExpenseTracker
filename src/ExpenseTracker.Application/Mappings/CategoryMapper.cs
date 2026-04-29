@@ -10,13 +10,13 @@ public static class CategoryMapper
         return new CategoryDto
         {
             Id = categoryModel.Id,
-            UserId =  categoryModel.UserId,
+            UserId = categoryModel.UserId,
             Name = categoryModel.Name,
             Type = categoryModel.Type,
             SubType = categoryModel.SubType
 
         };
-    } 
+    }
     public static Category ToCategoryFromCreatDto(this CreateCategoryDto createCategoryDto)
     {
         return new Category
@@ -26,5 +26,5 @@ public static class CategoryMapper
             SubType = createCategoryDto.SubType
         };
     }
-    
+
 }

@@ -10,7 +10,7 @@ public static class AccountMapper
         return new AccountDto
         {
             Id = accountModel.Id,
-            UserId =  accountModel.UserId,
+            UserId = accountModel.UserId,
             Name = accountModel.Name,
             CurrencyType = accountModel.CurrencyType,
             Balance = accountModel.Balance

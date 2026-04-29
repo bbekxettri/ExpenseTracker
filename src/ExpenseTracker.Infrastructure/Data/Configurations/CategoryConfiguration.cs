@@ -11,14 +11,14 @@ public class CategoryConfiguration : IEntityTypeConfiguration<Category>
         builder.Property(c => c.Name)
             .IsRequired()
             .HasMaxLength(100);
-        
-        builder.Property(c =>c.Type)
+
+        builder.Property(c => c.Type)
             .HasConversion<string>()
             .IsRequired();
 
         builder.Property(c => c.SubType)
             .HasConversion<string>();
-        
+
         builder.HasOne(c => c.User)
             .WithMany(u => u.Categories)
             .HasForeignKey(a => a.UserId)

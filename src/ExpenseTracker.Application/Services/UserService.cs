@@ -1,4 +1,5 @@
 using BCrypt.Net;
+using ExpenseTracker.Application.Exceptions;
 using ExpenseTracker.Application.DTOs.User;
 using ExpenseTracker.Application.Interfaces.Common;
 using ExpenseTracker.Application.Interfaces.Users;
@@ -12,7 +13,7 @@ public class UserService(IUserRepository userRepository, IJwtService jwtService)
     {
         var existing = await userRepository.GetByEmailAsync(dto.Email);
         if (existing != null)
-            throw new Exception("Email already in use.");
+            throw new ConflictException("Email already in use.");
 
         var user = new User
         {
@@ -38,7 +39,6 @@ public class UserService(IUserRepository userRepository, IJwtService jwtService)
     {
         var user = await userRepository.GetByEmailAsync(dto.Email);
 
-        // null check first eliminates CS8604 warning
         if (user == null || !BCrypt.Net.BCrypt.Verify(dto.Password, user.PasswordHash))
             throw new UnauthorizedAccessException("Invalid email or password.");
 

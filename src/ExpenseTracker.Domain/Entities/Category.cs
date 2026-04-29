@@ -9,7 +9,7 @@ public class Category
     public string Name { get; set; } = string.Empty;
     public TransactionType Type { get; set; }
     public TransactionSubType? SubType { get; set; }
-    
+
     // nav
     public User User { get; set; } = null!;
     public List<Transaction> Transactions { get; set; } = new();

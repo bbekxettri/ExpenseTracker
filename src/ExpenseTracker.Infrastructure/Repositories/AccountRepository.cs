@@ -39,9 +39,9 @@ public class AccountRepository(AppDbContext context) : IAccountRepository
         var account = await context.Accounts
             .FirstOrDefaultAsync(a => a.Id == id && a.UserId == userId);
         if (account is null)
-            return  false;
+            return false;
         context.Accounts.Remove(account);
-        await  context.SaveChangesAsync();
+        await context.SaveChangesAsync();
         return true;
 
 

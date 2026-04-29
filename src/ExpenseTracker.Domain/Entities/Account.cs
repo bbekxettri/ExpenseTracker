@@ -9,7 +9,7 @@ public class Account
     public AccountType Type { get; set; }
     public decimal Balance { get; set; }
     public string CurrencyType { get; set; } = "NRP";
-    public DateTime CreatedAt { get; set; } =  DateTime.UtcNow;
+    public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
 
     // nav
     public User User { get; set; } = null!;

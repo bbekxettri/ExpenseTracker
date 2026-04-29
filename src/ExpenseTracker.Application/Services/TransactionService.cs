@@ -1,5 +1,4 @@
 using ExpenseTracker.Application.DTOs.Transaction;
-using ExpenseTracker.Application.Interfaces;
 using ExpenseTracker.Application.Interfaces.Transactions;
 using ExpenseTracker.Application.Mappings;
 
@@ -9,7 +8,7 @@ public class TransactionService(ITransactionRepository transactionRepository) : 
 {
     public async Task<List<TransactionDto>> GetAllTransactionsAsync(Guid userId)
     {
-        var  transactions = await transactionRepository.GetAllTransactionsAsync(userId);
+        var transactions = await transactionRepository.GetAllTransactionsAsync(userId);
         return transactions.Select(t => t.ToTransactionDto()).ToList();
     }
 
@@ -31,7 +30,21 @@ public class TransactionService(ITransactionRepository transactionRepository) : 
     {
         var transaction = await transactionRepository.GetTransactionByIdAsync(id, userId);
         if (transaction is null) return null;
-        
+
+        if (dto.AccountId is not null)
+            transaction.AccountId = dto.AccountId.Value;
+        if (dto.CategoryId is not null)
+            transaction.CategoryId = dto.CategoryId.Value;
+        if (dto.Type is not null)
+            transaction.Type = dto.Type.Value;
+        if (dto.SubType is not null)
+            transaction.SubType = dto.SubType.Value;
+        if (dto.Amount is not null)
+            transaction.Amount = dto.Amount.Value;
+        if (dto.TransferToAccountId is not null)
+            transaction.TransferToAccountId = dto.TransferToAccountId.Value;
+        if (dto.TransferFromAccountId is not null)
+            transaction.TransferFromAccountId = dto.TransferFromAccountId.Value;
         if (dto.Note is not null)
             transaction.Note = dto.Note;
         if (dto.Date is not null)

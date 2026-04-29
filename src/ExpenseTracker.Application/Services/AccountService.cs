@@ -29,12 +29,12 @@ public class AccountService(IAccountRepository accountRepository) : IAccountServ
     public async Task<AccountDto?> UpdateAccountAsync(int id, Guid userId, UpdateAccountDto dto)
     {
         var account = await accountRepository.GetAccountByIdAsync(id, userId);
-        if (account is null) 
+        if (account is null)
             return null;
 
-        if (dto.Name is not null) 
+        if (dto.Name is not null)
             account.Name = dto.Name;
-        if (dto.CurrencyType is not null) 
+        if (dto.CurrencyType is not null)
             account.CurrencyType = dto.CurrencyType;
 
         var updated = await accountRepository.UpdateAccountAsync(account);

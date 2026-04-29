@@ -12,7 +12,6 @@ namespace ExpenseTracker.API.Controllers;
 public class TransactionsController(ITransactionService service, ICurrentUserService currentUser) : ControllerBase
 {
 
-    // 🔹 GET: api/transactions
     [HttpGet]
     public async Task<IActionResult> GetAll()
     {
@@ -22,7 +21,6 @@ public class TransactionsController(ITransactionService service, ICurrentUserSer
         return Ok(transactions);
     }
 
-    // 🔹 GET: api/transactions/5
     [HttpGet("{id:int}")]
     public async Task<IActionResult> GetById(int id)
     {
@@ -35,7 +33,6 @@ public class TransactionsController(ITransactionService service, ICurrentUserSer
         return Ok(transaction);
     }
 
-    // 🔹 POST: api/transactions
     [HttpPost]
     public async Task<IActionResult> Create([FromBody] CreateTransactionDto dto)
     {
@@ -45,7 +42,6 @@ public class TransactionsController(ITransactionService service, ICurrentUserSer
         return CreatedAtAction(nameof(GetById), new { id = created.Id }, created);
     }
 
-    // 🔹 PUT: api/transactions/5
     [HttpPut("{id:int}")]
     public async Task<IActionResult> Update(int id, [FromBody] UpdateTransactionDto dto)
     {
@@ -58,7 +54,6 @@ public class TransactionsController(ITransactionService service, ICurrentUserSer
         return Ok(updated);
     }
 
-    // 🔹 DELETE: api/transactions/5
     [HttpDelete("{id:int}")]
     public async Task<IActionResult> Delete(int id)
     {

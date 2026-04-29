@@ -12,15 +12,15 @@ public static class TransactionMapper
             Id = transactionModel.Id,
             UserId = transactionModel.UserId,
             AccountId = transactionModel.AccountId,
-            CategoryId =  transactionModel.CategoryId,
-            Type =  transactionModel.Type,
+            CategoryId = transactionModel.CategoryId,
+            Type = transactionModel.Type,
             SubType = transactionModel.SubType,
             Amount = transactionModel.Amount,
-            Note =  transactionModel.Note,
+            Note = transactionModel.Note,
             Date = transactionModel.Date
         };
     }
-    
+
     public static Transaction ToTransactionFromCreateDto(this CreateTransactionDto dto)
     {
         return new Transaction

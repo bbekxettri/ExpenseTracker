@@ -1,5 +1,6 @@
 using System.Text;
 using ExpenseTracker.Api.DependencyInjection;
+using ExpenseTracker.API.Middleware;
 using ExpenseTracker.Infrastructure.Data;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -71,6 +72,7 @@ builder.Services.AddAuthorization(options =>
 });
 
 var app = builder.Build();
+app.UseMiddleware<ExceptionHandlingMiddleware>();
 
 // Configure pipeline
 if (app.Environment.IsDevelopment())

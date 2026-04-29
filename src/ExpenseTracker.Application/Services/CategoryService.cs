@@ -29,7 +29,7 @@ public class CategoryService(ICategoryRepository categoryRepository) : ICategory
     public async Task<CategoryDto?> UpdateCategoryAsync(int id, Guid userId, UpdateCategoryDto dto)
     {
         var account = await categoryRepository.GetCategoryByIdAsync(id, userId);
-        if (account is null) 
+        if (account is null)
             return null;
         if (dto.Name is not null)
             account.Name = dto.Name;
