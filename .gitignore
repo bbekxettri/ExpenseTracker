@@ -1,0 +1,66 @@
+# Build results
+bin/
+obj/
+out/
+artifacts/
+
+# .NET generated files
+*.user
+*.rsuser
+*.suo
+*.userosscache
+*.sln.docstates
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+# Rider / JetBrains
+.idea/
+*.sln.DotSettings.user
+
+# Codex local workspace marker
+.codex
+
+# Visual Studio / VS Code
+.vs/
+.vscode/
+
+# Test results and coverage
+TestResults/
+*.trx
+*.coverage
+*.coveragexml
+coverage/
+coverage.cobertura.xml
+
+# NuGet
+*.nupkg
+*.snupkg
+packages/
+!**/packages/build/
+!**/packages/repositories.config
+
+# ASP.NET / local configuration
+appsettings.Local.json
+appsettings.*.local.json
+secrets.json
+
+# Logs
+*.log
+logs/
+
+# Docker / environment files
+.env
+.env.*
+!.env.example
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Temporary files
+*.tmp
+*.temp
+*.swp
+*.swo
+~$*
