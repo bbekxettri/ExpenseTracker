@@ -1,0 +1,18 @@
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Design;
+
+namespace ExpenseTracker.Infrastructure.Data;
+
+public class AppDbContextFactory : IDesignTimeDbContextFactory<AppDbContext>
+{
+    public AppDbContext CreateDbContext(string[] args)
+    {
+        var optionsBuilder = new DbContextOptionsBuilder<AppDbContext>();
+
+        optionsBuilder.UseNpgsql(
+            "Host=localhost;Port=5431;Database=ExpenseTrackerDb;Username=postgres;Password=postgres"
+        );
+
+        return new AppDbContext(optionsBuilder.Options);
+    }
+}

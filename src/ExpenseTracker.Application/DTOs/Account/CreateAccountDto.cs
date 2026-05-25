@@ -7,7 +7,7 @@ public class CreateAccountDto
 {
     [Required]
     [StringLength(100, MinimumLength = 2)]
-    public string Name { get; set; } = string.Empty;
+    public string AccountName { get; set; } = string.Empty;
 
     public AccountType AccType { get; set; }
 

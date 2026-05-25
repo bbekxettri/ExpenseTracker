@@ -11,7 +11,7 @@ public static class CategoryMapper
         {
             Id = categoryModel.Id,
             UserId = categoryModel.UserId,
-            Name = categoryModel.Name,
+            CategoryName = categoryModel.CategoryName,
             Type = categoryModel.Type,
             SubType = categoryModel.SubType
 
@@ -21,7 +21,7 @@ public static class CategoryMapper
     {
         return new Category
         {
-            Name = createCategoryDto.Name,
+            CategoryName = createCategoryDto.Name,
             Type = createCategoryDto.Type,
             SubType = createCategoryDto.SubType
         };

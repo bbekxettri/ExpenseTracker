@@ -10,7 +10,7 @@ public class AccountConfiguration : IEntityTypeConfiguration<Account>
     {
         builder.HasKey(a => a.Id);
 
-        builder.Property(a => a.Name)
+        builder.Property(a => a.AccountName)
             .IsRequired()
             .HasMaxLength(100);
 

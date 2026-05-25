@@ -11,7 +11,7 @@ public static class AccountMapper
         {
             Id = accountModel.Id,
             UserId = accountModel.UserId,
-            Name = accountModel.Name,
+            AccountName = accountModel.AccountName,
             CurrencyType = accountModel.CurrencyType,
             Balance = accountModel.Balance
         };
@@ -22,7 +22,7 @@ public static class AccountMapper
     {
         return new Account
         {
-            Name = accountDto.Name,
+            AccountName = accountDto.AccountName,
             Type = accountDto.AccType,
             CurrencyType = accountDto.CurrencyType,
             Balance = accountDto.Balance

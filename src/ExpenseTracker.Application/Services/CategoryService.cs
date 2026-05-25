@@ -32,7 +32,7 @@ public class CategoryService(ICategoryRepository categoryRepository) : ICategory
         if (account is null)
             return null;
         if (dto.Name is not null)
-            account.Name = dto.Name;
+            account.CategoryName = dto.Name;
 
         var updated = await categoryRepository.UpdateCategoryAsync(account);
         return updated.ToCategoryDto();

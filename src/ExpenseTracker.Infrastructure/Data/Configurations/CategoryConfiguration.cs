@@ -8,7 +8,7 @@ public class CategoryConfiguration : IEntityTypeConfiguration<Category>
 {
     public void Configure(EntityTypeBuilder<Category> builder)
     {
-        builder.Property(c => c.Name)
+        builder.Property(c => c.CategoryName)
             .IsRequired()
             .HasMaxLength(100);
 

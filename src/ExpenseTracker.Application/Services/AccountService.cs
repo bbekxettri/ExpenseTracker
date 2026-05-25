@@ -15,7 +15,7 @@ public class AccountService(IAccountRepository accountRepository) : IAccountServ
     public async Task<AccountDto?> GetAccountByIdAsync(int id, Guid userId)
     {
         var account = await accountRepository.GetAccountByIdAsync(id, userId);
-        return account is null ? null : account.ToAccountDto();
+        return account?.ToAccountDto();
     }
 
     public async Task<AccountDto> CreateAccountAsync(Guid userId, CreateAccountDto dto)
@@ -32,8 +32,8 @@ public class AccountService(IAccountRepository accountRepository) : IAccountServ
         if (account is null)
             return null;
 
-        if (dto.Name is not null)
-            account.Name = dto.Name;
+        if (dto.AccountName is not null)
+            account.AccountName = dto.AccountName;
         if (dto.CurrencyType is not null)
             account.CurrencyType = dto.CurrencyType;
 
